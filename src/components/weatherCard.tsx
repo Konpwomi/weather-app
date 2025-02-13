@@ -17,18 +17,19 @@ function WeatherCard() {
 
   const handleSearch = () => {
     if (city.trim() === "") {
-        alert("Please enter a valid city name.");
-        return;
-      }
+      alert("Please enter a valid city name.");
+      return;
+    }
     setSearchCity(city);
   };
 
-  const temperatureCelsius = weather.main ? (weather.main.temp - 273.15).toFixed(2) : null;
-
+  const temperatureCelsius = weather.main
+    ? (weather.main.temp - 273.15).toFixed(2)
+    : null;
 
   return (
     <div className="min-h-screen font-poppins flex items-center bg-blue-50 justify-center">
-      <div className="bg-gradient-to-b from-blue-400 to-blue-700 p-6 rounded-lg h-screen max-h-[500px] w-[360px]">
+      <div className="bg-gradient-to-b from-blue-400 to-blue-700 p-6 rounded-lg max-h-[500px] w-[360px]">
         <div className="flex flex-col items-center">
           <div className="flex gap-5">
             <input
@@ -36,7 +37,10 @@ function WeatherCard() {
               className="bg-white rounded-full pl-5 p-3"
               onChange={handleChange}
             ></input>
-            <button className="rounded-full p-4 bg-white" onClick={handleSearch}>
+            <button
+              className="rounded-full p-4 bg-white"
+              onClick={handleSearch}
+            >
               <img src={searchIcon} className="w-4 h-4"></img>
             </button>
           </div>
