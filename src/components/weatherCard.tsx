@@ -29,11 +29,11 @@ function WeatherCard() {
 
   return (
     <div className="font-poppins bg-blue-50 h-screen flex justify-center items-center">
-      <div className="bg-gradient-to-b from-blue-400 to-blue-700 p-6 rounded-lg flex flex-col items-center">
+      <div className="bg-gradient-to-b from-blue-400 to-blue-700 p-6 rounded-lg flex flex-col items-center mx-5">
         <div className="flex gap-4">
           <input
             placeholder="search"
-            className="bg-white rounded-full w-full pl-5 p-3"
+            className="bg-white rounded-full w-[237px] pl-5 p-3"
             onChange={handleChange}
           ></input>
           <button className="rounded-full p-4 bg-white" onClick={handleSearch}>
