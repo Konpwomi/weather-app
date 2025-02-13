@@ -33,11 +33,11 @@ function WeatherCard() {
         <div className="flex gap-4">
           <input
             placeholder="search"
-            className="bg-white rounded-full pl-5 py-3"
+            className="bg-white rounded-full w-[237px] pl-5 py-3"
             onChange={handleChange}
           ></input>
-          <button className="rounded-full p-3 bg-white" onClick={handleSearch}>
-            <img src={searchIcon} className="w-6 h-4"></img>
+          <button className="rounded-full p-4 bg-white" onClick={handleSearch}>
+            <img src={searchIcon} className="w-4 h-4"></img>
           </button>
         </div>
         {loading ? (
