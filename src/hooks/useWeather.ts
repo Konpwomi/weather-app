@@ -19,7 +19,7 @@ const useWeather = (city: string): { weather: weatherType; loading: boolean; err
                 setWeather(response.data)
             } catch (err) {
                 if (axios.isAxiosError(err) && err.response?.status === 404) {
-                    setError("City not found");
+                    setError("City not found !");
                   } else {
                     setError("Failed to fetch weather data");
                   }

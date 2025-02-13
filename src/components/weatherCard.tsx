@@ -1,6 +1,8 @@
 import searchIcon from "../components/icons/search.svg";
 import clear from "../assets/clear.png";
-// import drizzle from "../assets/drizzle.png";
+import cloud from "../assets/cloud.png";
+import rain from "../assets/rain.png";
+import snow from "../assets/snow.png";
 import humidity from "../assets/humidity.png";
 import wind from "../assets/wind.png";
 import useWeather from "../hooks/useWeather";
@@ -27,6 +29,19 @@ function WeatherCard() {
     ? (weather.main.temp - 273.15).toFixed(2)
     : null;
 
+  const getWeatherImage = (main: string) => {
+    switch (main) {
+      case "Clear":
+        return clear;
+      case "Clouds":
+        return cloud;
+      case "Rain":
+        return rain;
+      case "Snow":
+        return snow;
+    }
+  };
+
   return (
     <div className="font-poppins bg-blue-50 h-screen flex justify-center items-center">
       <div className="bg-gradient-to-b from-blue-400 to-blue-700 p-6 rounded-lg flex flex-col items-center mx-5">
@@ -41,12 +56,21 @@ function WeatherCard() {
           </button>
         </div>
         {loading ? (
-          <p className="text-white">Loading...</p>
+          <p className="text-white h-[400px] w-[301px] font-semibold text-2xl flex justify-center items-center">
+            Loading...
+          </p>
         ) : error ? (
-          <p className="text-red-500">{error}</p>
+          <p className="text-white h-[400px] w-[301px] font-semibold text-2xl flex justify-center items-center">
+            {error}
+          </p>
         ) : (
           <>
-            <img src={clear} className="w-[160px] h-[160px] my-4"></img>
+            {weather && weather.weather && weather.weather[0] && (
+              <img
+                src={getWeatherImage(weather.weather[0].main)}
+                className="w-[160px] h-[160px] my-4"
+              ></img>
+            )}
             <p className="text-6xl text-white">{temperatureCelsius}°c</p>
             <p className="text-3xl mb-16 text-white">{weather?.name}</p>
             <div className="flex justify-center gap-18">
